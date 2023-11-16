@@ -32,6 +32,10 @@ a:hover {
   height: 100%;
   margin: auto;
 }
+.page {
+  text-align: center;
+  font-size: 100%;
+}
 .logodiv {
   text-align: center;
 }
