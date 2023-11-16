@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            mysql优化查询方法
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>对于mysql数据库的，优化查询方法</p>
+<span id="more"></span>
+
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/imgs/mysql%E4%BC%98%E5%8C%96%E6%9F%A5%E8%AF%A2.png" alt="mysql查询优化"></p>
+<h2 id="1-使用索引"><a href="#1-使用索引" class="headerlink" title="1.使用索引"></a>1.使用索引</h2><blockquote>
+<p>避免全表扫描</p>
+</blockquote>
+<blockquote>
+<p>在where | order by | group by 后面的列上建立索引</p>
+</blockquote>
+<h2 id="2-优化sql语句"><a href="#2-优化sql语句" class="headerlink" title="2.优化sql语句"></a>2.优化sql语句</h2><blockquote>
+<p>使用explain，关注type,key,rows列</p>
+</blockquote>
+<blockquote>
+<p>不要使用select * from t, *替换成需要返回的字段</p>
+</blockquote>
+<blockquote>
+<p>不要在索引列计算和使用函数，会使索引失效</p>
+</blockquote>
+<blockquote>
+<p>尽可能使用limit减少返回行数, 减少数据传输时间和带宽浪费 </p>
+</blockquote>
+<h2 id="3-优化数据库对象"><a href="#3-优化数据库对象" class="headerlink" title="3.优化数据库对象"></a>3.优化数据库对象</h2><blockquote>
+<p>优化表数据类型，可以使用select * from t procedure analyse()。<br>查看表数据类型优化建议，原则是能正确的表示和存储数据的最短类型，减少对磁盘空间、内存、网络io的空间占用.</p>
+</blockquote>
+<blockquote>
+<p>对表进行拆分 水平拆分（可以按一个字段取模分表）和垂直拆分（拆分列）</p>
+</blockquote>
+<blockquote>
+<p>使用中间表提高查询速度，中间表和原表结构一致，转移数据至中间表提高查询速度</p>
+</blockquote>
+<h2 id="4-硬件优化"><a href="#4-硬件优化" class="headerlink" title="4.硬件优化"></a>4.硬件优化</h2><blockquote>
+<p>CPU优化 使用多核和高频的CPU</p>
+</blockquote>
+<blockquote>
+<p>内存优化 使用更大的内存，尽可能多的分配内存给mysql做缓存</p>
+</blockquote>
+<blockquote>
+<p>磁盘IO优化 a.使用磁盘阵列 (RAID 0)(RAID 1)(RAID-0+1) b.调整磁盘调度算法，减少磁盘寻址时间</p>
+</blockquote>
+<h2 id="5-mysql自身优化"><a href="#5-mysql自身优化" class="headerlink" title="5.mysql自身优化"></a>5.mysql自身优化</h2><blockquote>
+<p>my.cnf配置文件参数优化, 如指定mysql查询缓冲区的大小,指定mysql允许的最大连接进程数</p>
+</blockquote>
+<h2 id="6-应用优化"><a href="#6-应用优化" class="headerlink" title="6.应用优化"></a>6.应用优化</h2><blockquote>
+<p>使用数据库连接池</p>
+</blockquote>
+<blockquote>
+<p>使用查询缓存</p>
+</blockquote>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

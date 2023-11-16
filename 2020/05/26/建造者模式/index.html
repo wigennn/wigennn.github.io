@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            建造者模式
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h3 id="一、建造者模式概述"><a href="#一、建造者模式概述" class="headerlink" title="一、建造者模式概述"></a>一、建造者模式概述</h3><p>定义: 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。<br>目的: 为了创建不同属性的对象<br>优点: 易拓展、写法简洁</p>
+<span id="more"></span>
+<h3 id="二、建造者模式实现"><a href="#二、建造者模式实现" class="headerlink" title="二、建造者模式实现"></a>二、建造者模式实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 建造者模式</span><br><span class="line"> */</span><br><span class="line">public class Builder &#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    private String age;</span><br><span class="line"></span><br><span class="line">    private String sex;</span><br><span class="line"></span><br><span class="line">    public Builder setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Builder setAge(String age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Builder setSex(String sex) &#123;</span><br><span class="line">        this.sex = sex;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Builder build() &#123;</span><br><span class="line">        return this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Builder builder = new Builder().setName(&quot;1&quot;).setAge(&quot;2&quot;).setSex(&quot;3&quot;);</span><br><span class="line">        System.out.println(builder);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以用Lombok的注解@Builder实现（个人较喜欢）</p>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>学设计思想最重要，实现倒是其次的！</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

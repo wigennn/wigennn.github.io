@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            spring事务传播
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>spring在TransactionDefinition中规定了7种类型的事务传播行为，他规定了事务方法和事务方法发生嵌套调用时事务如何传播？</p>
+<span id="more"></span>
+
+<h3 id="二、Spring七种事务传播行为"><a href="#二、Spring七种事务传播行为" class="headerlink" title="二、Spring七种事务传播行为"></a>二、Spring七种事务传播行为</h3><ul>
+<li>PROPAGATION_REQUIRED<br>  <code>method2方法必须在事务中运行，如果当前method1存在事务，加入当前事务执行，不存在，则新建一个事务执行。</code>    </li>
+<li>PROPAGATION_SUPPORTS<br>  <code>method2方法支持事务执行，但是如果存在method1事务，它可以在当前事务中执行</code></li>
+<li>PROPAGATION_MANDATORY<br>  <code>method2必须在事务中执行，如果当前method1不存在事务，抛出异常</code></li>
+<li>PROPAGATION_REQUIRES_NEW<br>  <code>method2方法必须运行在自己的事务中，如果method1存在事务则挂起，等到method2事务执行完毕再执行</code></li>
+<li>PROPAGATION_NOT_SUPPORTED<br>  <code>method2方法不应在事务中执行，如果method1事务正在执行，method2将被挂起，直到method1执行完毕</code></li>
+<li>PROPAGATION_NEVER<br>  <code>当前方法method2不应在事务中执行，如果存在一个事务，则抛出异常</code></li>
+<li>PROPAGATION_NESTED<br>  <code>表示如果当前方法正有一个事务在运行中，则该方法应该运行在一个嵌套事务中，被嵌套的事务可以独立于被封装的事务中进行提交或者回滚。如果封装事务存在，并且外层事务抛出异常回滚，那么内层事务必须回滚，反之，内层事务并不影响外层事务。如果封装事务不存在，则同PROPAGATION_REQUIRED的一样</code></li>
+</ul>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3>
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

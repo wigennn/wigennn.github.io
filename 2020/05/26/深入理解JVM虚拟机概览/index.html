@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            深入理解JAVA虚拟机概览
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>相信对于《深入理解JAVA虚拟机》第二版这本书大家并不陌生，对于JAVA从业者来说是必读的书，面试也常常考察该知识点。最近也出了《深入理解JAVA虚拟机》第三版,此版本基于JAVA8。</p>
+<span id="more"></span>
+<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>JVM (java virtual Machine) java虚拟机，jvm具有可移植性的平台特点，一份代码，到处可用，所以风靡到现在。以前由于机器的配置不一样，一份代码在这台机器上运行，但是放在别的机器上不能运行，导致开发成本大，所以JVM的横空出世不是没有道理，也是理所当然出现的。</p>
+<p>此书大概讲三部分:</p>
+<ul>
+<li>JVM内存</li>
+<li>类加载</li>
+<li>jvm性能调优</li>
+</ul>
+<h3 id="二、JVM概览"><a href="#二、JVM概览" class="headerlink" title="二、JVM概览"></a>二、JVM概览</h3><h4 id="2-1-JVM内存"><a href="#2-1-JVM内存" class="headerlink" title="2.1 JVM内存"></a>2.1 JVM内存</h4><ul>
+<li>JVM内存<ul>
+<li>程序计数器<br>  <code>记录程序执行的地址</code></li>
+<li>虚拟机栈<br>  <code>栈帧 就是运行的局部方法相关</code></li>
+<li>本地方法栈<br>  <code>java native 方法</code></li>
+<li>堆<br>  <code>主要存放对象和数组</code></li>
+<li>方法区<br>  <code>主要存放类信息、常量池等</code></li>
+</ul>
+  有两个ERROR, OutOfMemoryError(内存溢出)和StackOverFlowError(栈溢出 XSS)</li>
+<li>对象回收<ul>
+<li>判断回收算法 <ul>
+<li>引用计数法</li>
+<li>可达性分析GC ROOT</li>
+</ul>
+</li>
+<li>垃圾回收算法 <ul>
+<li>复制算法</li>
+<li>标记清除</li>
+<li>标记整理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>垃圾收集器<ul>
+<li>Serial</li>
+<li>Serial Old</li>
+<li>Parnew</li>
+<li>parallel scanvage</li>
+<li>CMS</li>
+<li>G1</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-类加载"><a href="#2-2-类加载" class="headerlink" title="2.2 类加载"></a>2.2 类加载</h4><ul>
+<li>类加载过程<ul>
+<li>加载</li>
+<li>验证</li>
+<li>准备</li>
+<li>解析</li>
+<li>初始化</li>
+<li>销毁</li>
+</ul>
+</li>
+<li>类加载器<ul>
+<li>BootStrap Classloader<br><code>加载java的rt.jar</code></li>
+<li>Extension ClassLoader<br><code>加载extension包里的jar包</code></li>
+<li>Application Classloader<br><code>加载第三方jar包</code></li>
+</ul>
+</li>
+<li>双亲委派<br><code>先委托给父类加载器加载，父类加载器加载不到在委托给子类加载器加载</code><h4 id="2-3-jvm性能调优"><a href="#2-3-jvm性能调优" class="headerlink" title="2.3 jvm性能调优"></a>2.3 jvm性能调优</h4>掌握几个重要的命令</li>
+<li>jps <code>查看java进程</code></li>
+<li>jmap <code>可以导dump文件</code></li>
+<li>jstat <code>查看jvm gc状态</code></li>
+<li>jinfo <code>查看jvm信息</code></li>
+<li>jstack <code>查看线程状态</code></li>
+</ul>
+<h3 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h3><p>多实践，多观察，遇到问题多总结。对于概念有个基本掌握，实际上对于问题的排查在实际的工作中更为重要。</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

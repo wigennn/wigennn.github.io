@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            SpringBootAdmin介绍
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h3 id="一、springboot-admin简介"><a href="#一、springboot-admin简介" class="headerlink" title="一、springboot admin简介"></a>一、springboot admin简介</h3><p>Spring Boot Admin是一个开源社区项目，用于管理和监控SpringBoot应用程序。 应用程序作为Spring Boot Admin Client向为Spring Boot Admin Server注册（通过HTTP）或使用SpringCloud注册中心（例如Eureka，Consul）发现。</p>
+<span id="more"></span>
+
+<h3 id="二、为什么使用springboot-admin"><a href="#二、为什么使用springboot-admin" class="headerlink" title="二、为什么使用springboot admin"></a>二、为什么使用springboot admin</h3><p>sprinboot admin 监控，解决集群各节点监控问题。<br>非侵入式的，只需将springbootadmin server注册到注册中心上，各个节点暴露actuator状态，就可实现全集群节点监控。<br>springboot admin主要功能：</p>
+<ul>
+<li>1.健康状态</li>
+<li>2.上下线情况</li>
+<li>3.内存</li>
+<li>4.GC</li>
+<li>5.环境变量</li>
+<li>6.日志级别</li>
+<li>7.线程存储</li>
+<li>8.堆快照</li>
+<li>9.JMX</li>
+<li>10.监控指标</li>
+<li>11.endpoint</li>
+<li>12.系统参数</li>
+<li>13.CPU</li>
+<li>14.硬盘<br>……</li>
+</ul>
+<p>最主要是可视化, 如下图：<br><img src="/imgs/springbootadmin.PNG" alt="springbootadmin"></p>
+<h3 id="三、springboot-admin部署架构"><a href="#三、springboot-admin部署架构" class="headerlink" title="三、springboot admin部署架构"></a>三、springboot admin部署架构</h3><p>3.1结合注册中心</p>
+<ul>
+<li>server端<br>  注册到注册中心上如eureka</li>
+<li>client端<br>  各节点暴露监控状态，即配置文件中添加如下配置:<br>  ``management.endpoints.web.exposure.include=*<pre><code>management.endpoint.health.show-details=always``
+</code></pre>
+  如果没有集成client，是不支持JMX的</li>
+</ul>
+<p>3.2 客户端服务端模式<br>    客户端配置服务端地址，支持JMX</p>
+<h3 id="四、springboot-admin监控原理"><a href="#四、springboot-admin监控原理" class="headerlink" title="四、springboot admin监控原理"></a>四、springboot admin监控原理</h3><p><strong>actuator</strong></p>
+<pre><code>- env
+- info
+- health
+- dump
+......
+</code></pre>
+<p>JMX
+    </p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>

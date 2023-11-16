@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>
+        Wigen&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-reply replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            一定要弄明白spring bean的生命周期
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <h3 id="一、Bean的完整生命周期"><a href="#一、Bean的完整生命周期" class="headerlink" title="一、Bean的完整生命周期"></a>一、Bean的完整生命周期</h3><p>在传统的java应用中，bean的生命周期很简单，使用的时候new一下，使用完等待垃圾收集器回收。</p>
+<span id="more"></span>
+
+<p>spring管理bean比较复杂，bean的构造过程如下:<br><img src="/imgs/springbean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="springbean生命周期"></p>
+<p><strong>bean的生命周期</strong><br>1.spring启动，加载需要被spring管理的bean，进行实例化</p>
+<p>2.Bean的属性注入</p>
+<p>3.如果bean实现BeanNameAware的接口，spring将beanid传递给setBeanName方法</p>
+<p>4.如果bean实现了BeanFactoryAware接口，spring将调用setBeanFactory方法，将BeanFactory容器实例传入</p>
+<p>5.如果bean实现了BeanContextAware接口，spring将调用bean的setApplicationContext方法，将bean的所在的上下文引用传入进来</p>
+<p>6.如果bean实现BeanPostProcessor接口，spring将调用他们的postProcessBeforeInitialization方法</p>
+<p>7.如果bean实现了initializingBean接口，spring将调用他们的afterpropertiesSet方法，如果bean使用init-method声明初始化方法，该方法也会被调用</p>
+<p>8.如果bean实现BeanPostProcessor接口，spring将调用他们的postProcessAfterInitialization方法</p>
+<p>9.bean使用</p>
+<p>10.如果bean实现了DisposableBean接口，spring将调用destory方法，如果bean使用了destory-method方法，该方法也会被调用</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p>Copyright © 2020 <a class="flink" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>-<a class="flink" target="_blank" rel="noopener" href="https://github.com/sanjinhub/hexo-theme-geek">Geek</a>.
+        <label class="el-switch el-switch-green el-switch-sm" style="vertical-align: sub;">
+            <input type="checkbox" name="switch" id="update_style">
+            <span class="el-switch-style"></span>
+        </label>
+<!--         <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+        </script> -->
+    </p>
+</div>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="4U928TZIJyz70MexLfMdNk22-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="0IT5GuAQchWyvO7dI4IGXDJ7">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+    color: #698fca;
+}
+
+.v .vlist .vcard .vhead .vsys {
+    color: #3a3e4a;
+}
+
+.v .vlist .vcard .vh .vmeta .vat {
+    color: #638fd5;
+}
+
+.v .vlist .vcard .vhead .vnick {
+    color: #6ba1ff;
+}
+
+.v a {
+    color: #8696b1;
+}
+
+.v .vlist .vcard .vhead .vnick:hover {
+    color: #669bfc;
+}
+</style>
+</body>
+
+</html>
